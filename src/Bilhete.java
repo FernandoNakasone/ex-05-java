@@ -1,6 +1,4 @@
-import java.text.DecimalFormat;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Bilhete {
     static final double TARIFABASE = 5.20;
@@ -8,7 +6,7 @@ public class Bilhete {
     double saldo;
     Usuario usuario;
 
-    public Bilhete() {
+    public Bilhete(Usuario usuario) {
         Random rd = new Random();
         this.numero = rd.nextInt(1000, 10000);
         this.usuario = usuario;
