@@ -35,8 +35,8 @@ public class Bilhete {
 
         if (saldo >= debito){
             saldo -= debito;
-            return "Passagem liberada";
+            return "Passagem liberada \n Saldo restante:" + saldo;
         }
-            return "Saldo insuficiente";
+            return "Saldo insuficiente \n Saldo atual:" + saldo;
     }
 }
