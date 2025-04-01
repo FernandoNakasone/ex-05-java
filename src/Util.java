@@ -91,7 +91,32 @@ public class Util {
     }
 
     private void removerBilhete(){
-        showMessageDialog(null,"Digite o número do bilhete para ser deletado");
+        int indice = 0, resposta;
+        long cpf;
+        cpf = parseLong(showInputDialog("Digite o número do cpf do bilhete a ser deletado"));
+        for(int i=0;i<index;i++){
+            if(cpf == bilhete[i].usuario.cpf){
+                indice = i;
+                break;
+            } else {
+                indice = -1;
+            }
+        }
+
+        if(indice != -1){
+            resposta = showConfirmDialog(null,"Tem certeza que deseja excluir o bilhete: \n" +
+                    bilhete[indice].numero + "\n" +
+                    bilhete[indice].usuario.cpf + "\n" +
+                    bilhete[indice].usuario.nome
+            );
+
+            if(resposta == YES_OPTION){
+                index--;
+                bilhete[indice] = bilhete[index];
+            }
+        } else {
+            showMessageDialog(null, "Usuario não encontrado");
+        }
     }
 
     private void MenuUsuario(){
@@ -107,7 +132,6 @@ public class Util {
             } else {
                 indice = -1;
             }
-            System.out.println(indice);
         }
         if(indice == -1){
             showMessageDialog(null, "Usuario não encontrado");

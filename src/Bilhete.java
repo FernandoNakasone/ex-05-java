@@ -1,6 +1,8 @@
+import java.text.DecimalFormat;
 import java.util.Random;
 
 public class Bilhete {
+    DecimalFormat fM = new DecimalFormat("R$ #0.00");
     static final double TARIFABASE = 5.20;
     long numero;
     double saldo;
@@ -35,8 +37,8 @@ public class Bilhete {
 
         if (saldo >= debito){
             saldo -= debito;
-            return "Passagem liberada \n Saldo restante:" + saldo;
+            return "Passagem liberada \n Saldo restante:" + fM.format(saldo);
         }
-            return "Saldo insuficiente \n Saldo atual:" + saldo;
+            return "Saldo insuficiente \n Saldo atual:" + fM.format(saldo);
     }
 }
